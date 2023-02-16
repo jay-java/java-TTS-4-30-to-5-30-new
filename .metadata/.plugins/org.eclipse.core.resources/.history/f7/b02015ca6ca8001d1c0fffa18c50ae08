@@ -1,0 +1,7 @@
+package core;
+
+public class INtefaceDemo {
+	public static void main(String[] args) {
+		
+	}
+}

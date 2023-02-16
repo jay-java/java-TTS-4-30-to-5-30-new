@@ -1,0 +1,21 @@
+package core;
+
+import java.util.Scanner;
+
+public class ExecptionHandling {
+	public static void main(String[] args) {
+		try {
+			int i,j,k;
+			Scanner sc = new Scanner(System.in);
+			System.out.println("enter i = ");
+			i  =sc.nextInt();
+			System.out.println("enter j = ");
+			j =sc.nextInt();
+			k = i/j;
+			System.out.println(k);
+		} catch (ArithmeticException e) {
+			System.out.println("cannot divide b y zero");
+		}
+		System.out.println("hello java");
+	}
+}

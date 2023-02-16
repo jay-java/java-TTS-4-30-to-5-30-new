@@ -1,0 +1,24 @@
+package core;
+class Stud{
+	int rollno;
+	String name;
+	double per;
+	public Stud() {
+	}
+	public Stud(int rollno, String name, double per) {
+		super();
+		this.rollno = rollno;
+		this.name = name;
+		this.per = per;
+	}
+	@Override
+	public String toString() {
+		return "Stud [rollno=" + rollno + ", name=" + name + ", per=" + per + "]";
+	}
+}
+public class SerialiationDemo {
+	public static void main(String[] args) {
+		Stud s1 = new Stud(1,"java",67.67);
+		
+	}
+}

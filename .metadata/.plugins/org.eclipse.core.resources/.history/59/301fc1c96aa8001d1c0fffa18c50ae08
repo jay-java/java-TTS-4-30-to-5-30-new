@@ -1,0 +1,29 @@
+package core;
+class Mobile{
+	int ram;
+	String model;
+	double price;
+	public void setRam(int ram) {
+		this.ram=ram;
+	}
+	public int getRam() {
+		return ram;
+	}
+	public void setModel(String model) {
+		this.model=model;
+	}
+	public String getModel() {
+		return model;
+	}
+	public void setPrice(double price) {
+		this.price=price;
+	}
+	public double getPrice() {
+		return price;
+	}
+}
+public class EncapsulationDemo {
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,9 @@
+package core;
+interface inter1{
+	
+}
+public class INtefaceDemo {
+	public static void main(String[] args) {
+		
+	}
+}
