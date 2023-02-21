@@ -1,0 +1,9 @@
+package core;
+
+import java.util.List;
+//<generics>
+public class ListDemo {
+	public static void main(String[] args) {
+		List
+	}
+}
