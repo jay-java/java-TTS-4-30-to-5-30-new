@@ -1,0 +1,12 @@
+package core;
+class Laptop{
+	private int ram;
+	private double price;
+	private String model;
+	
+}
+public class ListPractical {
+	public static void main(String[] args) {
+		
+	}
+}

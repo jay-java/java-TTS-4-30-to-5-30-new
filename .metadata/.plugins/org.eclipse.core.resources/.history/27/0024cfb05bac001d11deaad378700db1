@@ -1,9 +1,0 @@
-package core;
-class Stud{
-	int rollno;
-	String name;
-	double per;
-}
-public class SerialiationDemo {
-
-}

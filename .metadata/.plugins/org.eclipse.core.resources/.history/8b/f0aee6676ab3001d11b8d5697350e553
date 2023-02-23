@@ -1,0 +1,9 @@
+package core;
+class Laptop{
+	
+}
+public class ListPractical {
+	public static void main(String[] args) {
+		
+	}
+}

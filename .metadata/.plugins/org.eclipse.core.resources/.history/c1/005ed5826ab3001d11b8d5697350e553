@@ -1,0 +1,16 @@
+package core;
+class Laptop{
+	private int ram;
+	private double price;
+	private String model;
+	public Laptop(int ram,double price,String model) {
+		this.ram =ram;
+		this.price=price;
+		this.model=model;
+	}
+}
+public class ListPractical {
+	public static void main(String[] args) {
+		
+	}
+}
