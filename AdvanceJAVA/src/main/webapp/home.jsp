@@ -58,12 +58,14 @@ tr:nth-child(even) {
 			<td><%=u1.getEmail() %></td>
 			<td><%=u1.getPassword() %></td>
 			<td>
-				<form>
+				<form action="UserController" method="post"> 
+					<input type="hidden" name="id" value="<%=u1.getId()%>">
 					<input type="submit" name="action" value="edit">
 				</form>
 			</td>
 				<td>
-				<form>
+				<form action="UserController" method="post"> 
+					<input type="hidden" name="id" value="<%=u1.getId()%>">
 					<input type="submit" name="action" value="delete">
 				</form>
 			</td>
@@ -71,7 +73,7 @@ tr:nth-child(even) {
 		<%} %>
 	</table>
 
-
+<h1><a href="logout.jsp">Logout</a></h1>
 
 
 </body>
