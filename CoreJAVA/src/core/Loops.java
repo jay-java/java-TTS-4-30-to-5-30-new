@@ -22,8 +22,6 @@ public class Loops {
 			System.out.println();
 		}
 		
-		
-		
 //		double d = 12;
 //		System.out.println(d);
 //		

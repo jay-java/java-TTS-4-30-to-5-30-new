@@ -1,3 +1,4 @@
+<%@page import="Model.Seller"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!--A Design by W3layouts
@@ -31,6 +32,10 @@
       <!-- font-awesome icons -->
       <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
+      <!-- For Clients slider -->
+      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
+      <!--flexs slider-->
+      <link href="css/JiSlider.css" rel="stylesheet">
       <!--Shoping cart-->
       <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
@@ -41,60 +46,69 @@
       <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
    </head>
    <body>
-      <!--headder-->
+   
+   <%
+   Seller s = null;
+   if(session.getAttribute("data")!=null){
+	   s = (Seller)session.getAttribute("data");
+   }
+   else{
+	   response.sendRedirect("seller-login.jsp");
+   }
+   %>
       <div class="header-outs" id="home">
-      <div class="header-bar">
-         <div class="info-top-grid">
-            <div class="info-contact-agile">
-               <ul>
-                  <li>
-                     <span class="fas fa-phone-volume"></span>
-                     <p>+(000)123 4565 32</p>
-                  </li>
-                  <li>
-                     <span class="fas fa-envelope"></span>
-                     <p><a href="mailto:info@example.com">info@example1.com</a></p>
-                  </li>
-                  <li>
-                  </li>
-               </ul>
+         <div class="header-bar">
+            <div class="info-top-grid">
+               <div class="info-contact-agile">
+                  <ul>
+                     <li>
+                        <span class="fas fa-phone-volume"></span>
+                        <p>+(000)123 4565 32</p>
+                     </li>
+                     <li>
+                        <span class="fas fa-envelope"></span>
+                        <p><a href="mailto:info@example.com">info@example1.com</a></p>
+                     </li>
+                     <li>
+                     </li>
+                  </ul>
+               </div>
             </div>
-         </div>
-         <div class="container-fluid">
-            <div class="hedder-up row">
-               <div class="col-lg-3 col-md-3 logo-head">
-                  <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
-               </div>
-               <div class="col-lg-5 col-md-6 search-right">
-                  <form class="form-inline my-lg-0">
-                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                     <button class="btn" type="submit">Search</button>
-                  </form>
-               </div>
-               <div class="col-lg-4 col-md-3 right-side-cart">
-                  <div class="cart-icons">
-                     <ul>
-                        <li>
-                           <span class="far fa-heart"></span>
-                        </li>
-                        <li>
-                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                        </li>
-                        <li class="toyscart toyscart2 cart cart box_1">
-                           <form action="#" method="post" class="last">
-                              <input type="hidden" name="cmd" value="_cart">
-                              <input type="hidden" name="display" value="1">
-                              <button class="top_toys_cart" type="submit" name="submit" value="">
-                              <span class="fas fa-cart-arrow-down"></span>
-                              </button>
-                           </form>
-                        </li>
-                     </ul>
+            <div class="container-fluid">
+               <div class="hedder-up row">
+                  <div class="col-lg-3 col-md-3 logo-head">
+                     <h1><a class="navbar-brand" href="index.html">Toys-Shop</a></h1>
+                  </div>
+                  <div class="col-lg-5 col-md-6 search-right">
+                     <form class="form-inline my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
+                        <button class="btn" type="submit">Search</button>
+                     </form>
+                  </div>
+                  <div class="col-lg-4 col-md-3 right-side-cart">
+                     <div class="cart-icons">
+                        <ul>
+                           <li>
+                              <span class="far fa-heart"></span>
+                           </li>
+                           <li>
+                              <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
+                           </li>
+                           <li class="toyscart toyscart2 cart cart box_1">
+                              <form action="#" method="post" class="last">
+                                 <input type="hidden" name="cmd" value="_cart">
+                                 <input type="hidden" name="display" value="1">
+                                 <button class="top_toys_cart" type="submit" name="submit" value="">
+                                 <span class="fas fa-cart-arrow-down"></span>
+                                 </button>
+                              </form>
+                           </li>
+                        </ul>
+                     </div>
                   </div>
                </div>
             </div>
-         </div>
-         <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -114,130 +128,62 @@
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Register
+                        Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                           <a class="nav-link" href="seller-register.jsp">As Seller</a>
-                           <a class="nav-link " href="customer-register.jsp">As Customer</a>
+                           <a class="nav-link" href="seller-register.jsp">Upload Product</a>
+                           <a class="nav-link " href="customer-register.jsp">Manage Product</a>
                         </div>
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Login
+                        <%=s.getName() %>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                           <a class="nav-link" href="seller-login.jsp">Seller</a>
-                           <a class="nav-link " href="customer-login.jsp">Customer</a>
-                           <a class="nav-link " href="admin-login.jsp">Admin</a>
+                           <a class="nav-link" href="seller-profile.jsp">Profile</a>
+                           <a class="nav-link " href="seller-change-password.jsp">Change Password</a>
+                           <a class="nav-link " href="seller-logout.jsp">Logout</a>
                         </div>
-                     </li>
-                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
                      </li>
                   </ul>
                </div>
             </nav>
-      </div>
-	  </div>
-      <!--//headder-->
-      <!-- banner -->
-      <div class="inner_page-banner one-img">
-      </div>
-      <!--//banner -->
-      <!-- short -->
-      <div class="using-border py-3">
-         <div class="inner_breadcrumb  ml-4">
-            <ul class="short_ls">
-               <li>
-                  <a href="index.html">Home</a>
-                  <span>/ /</span>
-               </li>
-               <li>Login</li>
-            </ul>
          </div>
-      </div>
-      <!-- //short-->
-      <!--contact -->
-      <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+      
+      
+         <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
          <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Seller Login</h3>
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Seller Register</h3>
             <div class="contact-list-grid">
-            <%String msg = (String)request.getAttribute("msg"); %>
-            <%if(msg!=null){ %>
-            	<h4><%out.print(msg); %></h4>
-            <%} %>
+            <br><br><br>
                <form action="SellerController" method="post">
                   <div class=" agile-wls-contact-mid">
-                     <div class="form-group contact-forms">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
+                  <div class="form-group contact-forms">
+                        <input type="hidden" class="form-control" name="id" value="<%=s.getId()%>">
                      </div>
                      <div class="form-group contact-forms">
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="text" class="form-control" name="name" value="<%=s.getName()%>">
                      </div>
-                     <button type="submit" name="action" value="login" class="btn btn-block sent-butnn">Login</button>
+                      <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="contact" value="<%=s.getContact()%>">
+                     </div>
+                      <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="address" value="<%=s.getAddress()%>">
+                     </div>
+                     <div class="form-group contact-forms">
+                        <input type="email" class="form-control" name="email" value="<%=s.getEmail()%>">
+                     </div>
+                     <button type="submit" name="action" value="update" class="btn btn-block sent-butnn">Update</button>
                   </div>
                </form>
             </div>
          </div>
          <!--//contact-map -->
       </section>
-      <!--subscribe-address-->
-      <section class="subscribe">
-         <div class="container-fluid">
-         <div class="row">
-            <div class="col-lg-6 col-md-6 map-info-right px-0">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
-            </div>
-            <div class="col-lg-6 col-md-6 address-w3l-right text-center">
-               <div class="address-gried ">
-                  <span class="far fa-map"></span>
-                  <p>25478 Road St.121<br>USA New Hill
-                  <p>
-               </div>
-               <div class="address-gried mt-3">
-                  <span class="fas fa-phone-volume"></span>
-                  <p> +(000)123 4565<br>+(010)123 4565</p>
-               </div>
-               <div class=" address-gried mt-3">
-                  <span class="far fa-envelope"></span>
-                  <p><a href="mailto:info@example.com">info@example1.com</a>
-                     <br><a href="mailto:info@example.com">info@example2.com</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-		 </div>
-      </section>
-      <!--//subscribe-address-->
-      <section class="sub-below-address py-lg-4 py-md-3 py-sm-3 py-3">
-         <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-            <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Get In Touch Us</h3>
-            <div class="icons mt-4 text-center">
-               <ul>
-                  <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                  <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                  <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                  <li><a href="#"><span class="fab fa-vk"></span></a></li>
-               </ul>
-               <p class="my-3">velit sagittis vehicula. Duis posuere 
-                  ex in mollis iaculis. Suspendisse tincidunt
-                  velit sagittis vehicula. Duis posuere 
-                  velit sagittis vehicula. Duis posuere 
-               </p>
-            </div>
-            <div class="email-sub-agile">
-               <form action="#" method="post">
-                  <div class="form-group sub-info-mail">
-                     <input type="email" class="form-control email-sub-agile" placeholder="Email">
-                  </div>
-                  <div class="text-center">
-                     <button type="submit" class="btn subscrib-btnn">Subscribe</button>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </section>
-      <!--//subscribe-->
+      
+      
+      
+      
       <!-- footer -->
       <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
          <div class="copy-agile-right">
@@ -301,6 +247,59 @@
          });
       </script>
       <!-- //cart-js -->
+      <!--responsiveslides banner-->
+      <script src="js/responsiveslides.min.js"></script>
+      <script>
+         // You can also use "$(window).load(function() {"
+         $(function () {
+         	// Slideshow 4
+         	$("#slider4").responsiveSlides({
+         		auto: true,
+         		pager:false,
+         		nav:true ,
+         		speed: 900,
+         		namespace: "callbacks",
+         		before: function () {
+         			$('.events').append("<li>before event fired.</li>");
+         		},
+         		after: function () {
+         			$('.events').append("<li>after event fired.</li>");
+         		}
+         	});
+         
+         });
+      </script>
+      <!--// responsiveslides banner-->	 
+      <!--slider flexisel -->
+      <script src="js/jquery.flexisel.js"></script>
+      <script>
+         $(window).load(function() {
+         	$("#flexiselDemo1").flexisel({
+         		visibleItems: 3,
+         		animationSpeed: 3000,
+         		autoPlay:true,
+         		autoPlaySpeed: 2000,    		
+         		pauseOnHover: true,
+         		enableResponsiveBreakpoints: true,
+         		responsiveBreakpoints: { 
+         			portrait: { 
+         				changePoint:480,
+         				visibleItems: 1
+         			}, 
+         			landscape: { 
+         				changePoint:640,
+         				visibleItems:2
+         			},
+         			tablet: { 
+         				changePoint:768,
+         				visibleItems: 2
+         			}
+         		}
+         	});
+         	
+         });
+      </script>
+      <!-- //slider flexisel -->
       <!-- start-smoth-scrolling -->
       <script src="js/move-top.js"></script>
       <script src="js/easing.js"></script>
@@ -325,8 +324,6 @@
          		scrollSpeed: 1200,
          		easingType: 'linear'
          	};
-         
-         
          	$().UItoTop({
          		easingType: 'easeOutQuart'
          	});
@@ -336,6 +333,6 @@
       <!-- //here ends scrolling icon -->
       <!--bootstrap working-->
       <script src="js/bootstrap.min.js"></script>
-      <!-- //bootstrap working-->      <!-- //OnScroll-Number-Increase-JavaScript -->
+      <!-- //bootstrap working-->
    </body>
 </html>

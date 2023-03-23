@@ -10,9 +10,6 @@ import java.util.Scanner;
 //2.non -primitive - array,string,class
 
 
-
-
-
 class A{
 	public void run() {
 		System.out.println("run method inside a class");
@@ -20,6 +17,21 @@ class A{
 }
 public class First {
 	public static void main(String[] args) {
+		int i1 = 1;
+		System.out.println(i1);
+		double f = 1;
+		System.out.println(f);
+		double d1 = 12.23;
+		int q = (int)d1;
+		System.out.println(q);
+		
+		String s = String.valueOf(q);
+		System.out.println(s);
+		
+		String s1 = "1";
+		int e = Integer.parseInt(s1);
+		System.out.println(e);
+		
 		System.out.println("hello java");
 		A a = new A();
 		a.run();

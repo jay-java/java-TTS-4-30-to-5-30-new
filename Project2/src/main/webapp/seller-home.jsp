@@ -141,7 +141,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                            <a class="nav-link" href="seller-profile.jsp">Profile</a>
-                           <a class="nav-link " href="customer-login.jsp">Change Password</a>
+                           <a class="nav-link " href="seller-change-password.jsp">Change Password</a>
                            <a class="nav-link " href="seller-logout.jsp">Logout</a>
                         </div>
                      </li>
