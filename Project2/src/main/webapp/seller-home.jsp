@@ -131,8 +131,8 @@
                         Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                           <a class="nav-link" href="seller-register.jsp">Upload Product</a>
-                           <a class="nav-link " href="customer-register.jsp">Manage Product</a>
+                           <a class="nav-link" href="seller-upload-product.jsp">Upload Product</a>
+                           <a class="nav-link " href="seller-manage-product.jsp">Manage Product</a>
                         </div>
                      </li>
                      <li class="nav-item dropdown">
