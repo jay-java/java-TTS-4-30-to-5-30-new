@@ -1,6 +1,5 @@
 <%@page import="Dao.ProductDao"%>
 <%@page import="Model.Product"%>
-<%@page import="java.util.List"%>
 <%@page import="Model.Seller"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -35,12 +34,13 @@
       <!-- font-awesome icons -->
       <link href="css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
       <!-- //font-awesome icons -->
+      <!-- For Clients slider -->
+      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" />
+      <!--flexs slider-->
+      <link href="css/JiSlider.css" rel="stylesheet">
       <!--Shoping cart-->
       <link rel="stylesheet" href="css/shop.css" type="text/css" />
       <!--//Shoping cart-->
-      <!--checkout-->
-      <link rel="stylesheet" type="text/css" href="css/checkout.css">
-      <!--//checkout-->
       <!--stylesheets-->
       <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
       <!--//stylesheets-->
@@ -48,7 +48,8 @@
       <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
    </head>
    <body>
-     <%
+   
+   <%
    Seller s = null;
    if(session.getAttribute("data")!=null){
 	   s = (Seller)session.getAttribute("data");
@@ -57,7 +58,6 @@
 	   response.sendRedirect("seller-login.jsp");
    }
    %>
-      <!--headder-->
       <div class="header-outs" id="home">
          <div class="header-bar">
             <div class="info-top-grid">
@@ -151,184 +151,48 @@
                </div>
             </nav>
          </div>
-		  </div>
-         <!--//headder-->
-         <!-- banner -->
-         <div class="inner_page-banner one-img">
-         </div>
-         <!-- short -->
-         <div class="using-border py-3">
-            <div class="inner_breadcrumb  ml-4">
-               <ul class="short_ls">
-                  <li>
-                     <a href="index.html">Home</a>
-                     <span>/ /</span>
-                  </li>
-                  <li>Manage Products</li>
-               </ul>
-            </div>
-         </div>
-         <!-- //short-->
-         <!--Checkout-->  
-         <!-- //banner -->
-         <!-- top Products -->
-         <section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
-            <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-               <div class="shop_inner_inf">
-                  <div class="privacy about">
-                     <h3>Manage Product</h3>
-                     <div class="checkout-right">
-                        <table class="timetable_sub">
-                           <thead>
-                              <tr>
-                                 <th>Product</th>
-                                 <th>Product Name</th>
-                                 <th>Price</th>
-                                 <th>Edit</th>
-                                 <th>Remove</th>
-                              </tr>
-                           </thead>
-                           <tbody>
-                           
-                           <%List<Product> list = ProductDao.getProductsBySid(s.getId()); %>
-                           <%for(Product p:list){ %>
-                              <tr class="rem1">
-                                 <td class="invert-image"><a href="single.html"><img src="img/<%=p.getImage() %>" alt=" " height="100px" width="px100" class="img-responsive"></a></td>
-                                 <td class="invert"><%=p.getPname() %></td>
-                                 <td class="invert"><%=p.getPprice() %></td>
-                               	  <td>
-                                    <a href="edit-product.jsp?id=<%=p.getPid()%>">Edit</a>
-                                 </td>
-                                 <td>
-                                    <a>Remove</a>
-                                 </td>
-                              </tr>
-                             <%} %>
-                           </tbody>
-                        </table>
+         <!-- Slideshow 4 -->
+      </div>
+     <br><br><br><br><br><br>
+      <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
+         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Seller Register</h3>
+            <div class="contact-list-grid">
+            <%int id = Integer.parseInt(request.getParameter("id")); %>
+            <%Product p = ProductDao.getProductsByPid(id); %>
+               <form action="ProductController" method="post" enctype="multipart/form-data">
+                  <div class=" agile-wls-contact-mid">
+                  <input type="hidden" name="sid" value="<%=s.getId()%>">
+                  	  <div class="form-group contact-forms">
+                  	  <img src="img/<%=p.getImage()%>" height="200px" width="200px">
                      </div>
-                     <div class="checkout-left">
-                        <div class="col-md-4 checkout-left-basket">
-                           <h4>Continue to basket</h4>
-                           <ul>
-                              <li>Product1 <i>-</i> <span>$675.00 </span></li>
-                              <li>Product2 <i>-</i> <span>$325.00 </span></li>
-                              <li>Product3 <i>-</i> <span>$405.00 </span></li>
-                              <li>Total Service Charges <i>-</i> <span>$55.00</span></li>
-                              <li>Total <i>-</i> <span>$1405.00</span></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-8 address_form">
-                           <h4>Add a new Details</h4>
-                           <form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
-                              <section class="creditly-wrapper wrapper">
-                                 <div class="information-wrapper">
-                                    <div class="first-row form-group">
-                                       <div class="controls">
-                                          <label class="control-label">Full name: </label>
-                                          <input class="billing-address-name form-control" type="text" name="name" placeholder="Full name">
-                                       </div>
-                                       <div class="card_number_grids">
-                                          <div class="card_number_grid_left">
-                                             <div class="controls">
-                                                <label class="control-label">Mobile number:</label>
-                                                <input class="form-control" type="text" placeholder="Mobile number">
-                                             </div>
-                                          </div>
-                                          <div class="card_number_grid_right">
-                                             <div class="controls">
-                                                <label class="control-label">Landmark: </label>
-                                                <input class="form-control" type="text" placeholder="Landmark">
-                                             </div>
-                                          </div>
-                                          <div class="clear"> </div>
-                                       </div>
-                                       <div class="controls">
-                                          <label class="control-label">Town/City: </label>
-                                          <input class="form-control" type="text" placeholder="Town/City">
-                                       </div>
-                                       <div class="controls">
-                                          <label class="control-label">Address type: </label>
-                                          <select class="form-control option-w3ls">
-                                             <option>Office</option>
-                                             <option>Home</option>
-                                             <option>Commercial</option>
-                                          </select>
-                                       </div>
-                                    </div>
-                                    <button class="submit check_out">Delivery to this Address</button>
-                                 </div>
-                              </section>
-                           </form>
-                           <div class="checkout-right-basket">
-                              <a href="payment.html">Make a Payment </a>
-                           </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                        <div class="clearfix"></div>
+                  <div class="form-group contact-forms">
+                        <input type="file" class="form-control" name="image" >
                      </div>
-                  </div>
-               </div>
-               <!-- //top products -->
-            </div>
-      </section>
-      <!--subscribe-address-->
-      <section class="subscribe">
-         <div class="container-fluid">
-         <div class="row">
-            <div class="col-lg-6 col-md-6 map-info-right px-0">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3150859.767904157!2d-96.62081048651531!3d39.536794757966845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1408111832978"> </iframe>
-            </div>
-            <div class="col-lg-6 col-md-6 address-w3l-right text-center">
-               <div class="address-gried ">
-                  <span class="far fa-map"></span>
-                  <p>25478 Road St.121<br>USA New Hill
-                  <p>
-               </div>
-               <div class="address-gried mt-3">
-                  <span class="fas fa-phone-volume"></span>
-                  <p> +(000)123 4565<br>+(010)123 4565</p>
-               </div>
-               <div class=" address-gried mt-3">
-                  <span class="far fa-envelope"></span>
-                  <p><a href="mailto:info@example.com">info@example1.com</a>
-                     <br><a href="mailto:info@example.com">info@example2.com</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-		 </div>
-      </section>
-      <!--//subscribe-address-->
-      <section class="sub-below-address py-lg-4 py-md-3 py-sm-3 py-3">
-         <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-            <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Get In Touch Us</h3>
-            <div class="icons mt-4 text-center">
-               <ul>
-                  <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                  <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                  <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                  <li><a href="#"><span class="fab fa-vk"></span></a></li>
-               </ul>
-               <p class="my-3">velit sagittis vehicula. Duis posuere 
-                  ex in mollis iaculis. Suspendisse tincidunt
-                  velit sagittis vehicula. Duis posuere 
-                  velit sagittis vehicula. Duis posuere 
-               </p>
-            </div>
-            <div class="email-sub-agile">
-               <form action="#" method="post">
-                  <div class="form-group sub-info-mail">
-                     <input type="email" class="form-control email-sub-agile" placeholder="Email">
-                  </div>
-                  <div class="text-center">
-                     <button type="submit" class="btn subscrib-btnn">Subscribe</button>
+                     <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="pname" value="<%=p.getPname()%>">
+                     </div>
+                      <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="pprice" value="<%=p.getPprice()%>">
+                     </div>
+                      <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="pcategory" value="<%=p.getPcategory()%>">
+                     </div>
+                     <div class="form-group contact-forms">
+                        <input type="text" class="form-control" name="pdesc" value="<%=p.getPdesc()%>">
+                     </div>
+                     <button type="submit" name="action" value="upload" class="btn btn-block sent-butnn">UPdate Product</button>
                   </div>
                </form>
             </div>
          </div>
+         <!--//contact-map -->
       </section>
-      <!--//subscribe-->
+     
+     
+     
+     
+     
       <!-- footer -->
       <footer class="py-lg-4 py-md-3 py-sm-3 py-3 text-center">
          <div class="copy-agile-right">
@@ -376,7 +240,7 @@
       <!--js working-->
       <script src='js/jquery-2.2.3.min.js'></script>
       <!--//js working-->
-      <!-- cart-js -->	
+      <!-- cart-js -->
       <script src="js/minicart.js"></script>
       <script>
          toys.render();
@@ -391,51 +255,60 @@
          	}
          });
       </script>
-      <!--// cart-js -->
-      <!--quantity-->
+      <!-- //cart-js -->
+      <!--responsiveslides banner-->
+      <script src="js/responsiveslides.min.js"></script>
       <script>
-         $('.value-plus').on('click', function () {
-         	var divUpd = $(this).parent().find('.value'),
-         		newVal = parseInt(divUpd.text(), 10) + 1;
-         	divUpd.text(newVal);
-         });
+         // You can also use "$(window).load(function() {"
+         $(function () {
+         	// Slideshow 4
+         	$("#slider4").responsiveSlides({
+         		auto: true,
+         		pager:false,
+         		nav:true ,
+         		speed: 900,
+         		namespace: "callbacks",
+         		before: function () {
+         			$('.events').append("<li>before event fired.</li>");
+         		},
+         		after: function () {
+         			$('.events').append("<li>after event fired.</li>");
+         		}
+         	});
          
-         $('.value-minus').on('click', function () {
-         	var divUpd = $(this).parent().find('.value'),
-         		newVal = parseInt(divUpd.text(), 10) - 1;
-         	if (newVal >= 1) divUpd.text(newVal);
          });
       </script>
-      <!--quantity-->
-      <!--closed-->
+      <!--// responsiveslides banner-->	 
+      <!--slider flexisel -->
+      <script src="js/jquery.flexisel.js"></script>
       <script>
-         $(document).ready(function (c) {
-         	$('.close1').on('click', function (c) {
-         		$('.rem1').fadeOut('slow', function (c) {
-         			$('.rem1').remove();
-         		});
+         $(window).load(function() {
+         	$("#flexiselDemo1").flexisel({
+         		visibleItems: 3,
+         		animationSpeed: 3000,
+         		autoPlay:true,
+         		autoPlaySpeed: 2000,    		
+         		pauseOnHover: true,
+         		enableResponsiveBreakpoints: true,
+         		responsiveBreakpoints: { 
+         			portrait: { 
+         				changePoint:480,
+         				visibleItems: 1
+         			}, 
+         			landscape: { 
+         				changePoint:640,
+         				visibleItems:2
+         			},
+         			tablet: { 
+         				changePoint:768,
+         				visibleItems: 2
+         			}
+         		}
          	});
+         	
          });
       </script>
-      <script>
-         $(document).ready(function (c) {
-         	$('.close2').on('click', function (c) {
-         		$('.rem2').fadeOut('slow', function (c) {
-         			$('.rem2').remove();
-         		});
-         	});
-         });
-      </script>
-      <script>
-         $(document).ready(function (c) {
-         	$('.close3').on('click', function (c) {
-         		$('.rem3').fadeOut('slow', function (c) {
-         			$('.rem3').remove();
-         		});
-         	});
-         });
-      </script>
-      <!--//closed-->
+      <!-- //slider flexisel -->
       <!-- start-smoth-scrolling -->
       <script src="js/move-top.js"></script>
       <script src="js/easing.js"></script>
