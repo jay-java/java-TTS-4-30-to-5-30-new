@@ -162,7 +162,7 @@
             <%Product p = ProductDao.getProductsByPid(id); %>
                <form action="ProductController" method="post" enctype="multipart/form-data">
                   <div class=" agile-wls-contact-mid">
-                  <input type="hidden" name="sid" value="<%=s.getId()%>">
+                  <input type="hidden" name="pid" value="<%=p.getPid()%>">
                   	  <div class="form-group contact-forms">
                   	  <img src="img/<%=p.getImage()%>" height="200px" width="200px">
                      </div>
@@ -181,7 +181,7 @@
                      <div class="form-group contact-forms">
                         <input type="text" class="form-control" name="pdesc" value="<%=p.getPdesc()%>">
                      </div>
-                     <button type="submit" name="action" value="upload" class="btn btn-block sent-butnn">UPdate Product</button>
+                     <button type="submit" name="action" value="update" class="btn btn-block sent-butnn">UPdate Product</button>
                   </div>
                </form>
             </div>

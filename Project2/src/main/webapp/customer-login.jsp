@@ -162,7 +162,7 @@
          <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Customer Login</h3>
             <div class="contact-list-grid">
-               <form action="#" method="post">
+               <form action="CustomerController" method="post">
                   <div class=" agile-wls-contact-mid">
                      <div class="form-group contact-forms">
                         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -170,7 +170,7 @@
                      <div class="form-group contact-forms">
                         <input type="password" class="form-control" name="password" placeholder="Password">
                      </div>
-                     <button type="submit" name="action" value="register" class="btn btn-block sent-butnn">Register</button>
+                     <button type="submit" name="action" value="login" class="btn btn-block sent-butnn">Register</button>
                   </div>
                </form>
             </div>
@@ -222,7 +222,7 @@
                </p>
             </div>
             <div class="email-sub-agile">
-               <form action="#" method="post">
+               <form action="CustomerController" method="post">
                   <div class="form-group sub-info-mail">
                      <input type="email" class="form-control email-sub-agile" placeholder="Email">
                   </div>
