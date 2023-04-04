@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Dao.WishListDao;
+import Model.WishList;
+
 /**
  * Servlet implementation class WishListController
  */
@@ -34,8 +37,14 @@ public class WishListController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter("action");
+		if(action.equalsIgnoreCase("Add To WishList")) {
+			WishList w = new WishList();
+			w.setCusid(Integer.parseInt(request.getParameter("cusid")));
+			w.setPid(Integer.parseInt(request.getParameter("pid")));	
+			WishListDao.insertWishList(w);
+			response.sendRedirect("customer-home.jsp");
+		}
 	}
 
 }

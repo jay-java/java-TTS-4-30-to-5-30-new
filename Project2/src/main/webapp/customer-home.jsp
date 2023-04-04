@@ -130,11 +130,11 @@
                      </li>
                      <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Register
+                        Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                           <a class="nav-link" href="seller-register.jsp">As Seller</a>
-                           <a class="nav-link " href="customer-register.jsp">As Customer</a>
+                           <a class="nav-link" href="wishlist.jsp">WishList</a>
+                           <a class="nav-link " href="customer-register.jsp">Cart</a>
                         </div>
                      </li>
                      <li class="nav-item dropdown">
@@ -220,7 +220,7 @@
                <div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">
                   <img src="img/<%=p.getImage() %>" class="img-thumbnail" alt="">
                   <div class="banner-right-icon">
-                     <h4 class="pt-3"><%=p.getPname() %></h4>
+                     <a href="single-product.jsp?id=<%=p.getPid()%>"><h4 class="pt-3"><%=p.getPname() %></h4></a>
                       <h3 class="pt-3">Rs. <%=p.getPprice() %></h3>
                   </div>
                </div>
