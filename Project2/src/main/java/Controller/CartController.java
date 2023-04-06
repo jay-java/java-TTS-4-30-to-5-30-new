@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Dao.CartDao;
+import Model.Cart;
+
 /**
  * Servlet implementation class CartController
  */
@@ -26,8 +29,21 @@ public class CartController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String action = request.getParameter("action");
+		if(action.equalsIgnoreCase("Add To Cart")) {
+			Cart c = new Cart();
+			c.setCusid(Integer.parseInt(request.getParameter("cusid")));
+			c.setPid(Integer.parseInt(request.getParameter("pid")));
+			c.setPname(request.getParameter("pname"));
+			c.setPcategory(request.getParameter("pcategory"));
+			c.setPprice(Integer.parseInt(request.getParameter("pprice")));
+			int total = Integer.parseInt(request.getParameter("pprice"));
+			c.setQty(1);
+			c.setTotal(total);
+			c.setPayment_status("pending");
+			CartDao.insertInotCart(c);
+			response.sendRedirect("customer-home.jsp");
+		}
 	}
 
 	/**

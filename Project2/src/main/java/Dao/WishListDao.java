@@ -59,4 +59,16 @@ public class WishListDao {
 		}
 		return flag;
 	}
+	public static void removeFromWishList(int id) {
+		try {
+			Connection conn = DBConnection.createConnection();
+			String sql = "delete from wishlist where wid=?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setInt(1, id);
+			pst.executeUpdate();
+			System.out.println("product removed from wishlist");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

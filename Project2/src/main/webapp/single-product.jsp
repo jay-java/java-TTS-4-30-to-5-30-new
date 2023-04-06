@@ -130,7 +130,7 @@
 					id="navbarSupportedContent">
 					<ul class="navbar-nav ">
 						<li class="nav-item active"><a class="nav-link"
-							href="index.html">Home <span class="sr-only">(current)</span></a>
+							href="customer-home.jsp">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item"><a href="about.html" class="nav-link">About</a>
 						</li>
@@ -143,7 +143,7 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> Product </a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="nav-link" href="seller-register.jsp">WishList</a> <a
+								<a class="nav-link" href="wishlist.jsp">WishList</a> <a
 									class="nav-link " href="customer-register.jsp">Cart</a>
 							</div></li>
 						<li class="nav-item dropdown"><a
@@ -218,8 +218,13 @@
 								<input type="submit" name="action" value="Add To WishList">
 							</form>
 							<%} %>
-							<form action="#" method="post">
-								<input type="submit" value="Add To Cart">
+							<form action="CartController" method="get">
+								<input type="hidden" name="cusid" value="<%=c.getId()%>">
+								<input type="hidden" name="pid" value="<%=p.getPid()%>">
+								<input type="hidden" name="pname" value="<%=p.getPname()%>">
+								<input type="hidden" name="pcategory" value="<%=p.getPcategory()%>">
+								<input type="hidden" name="pprice" value="<%=p.getPprice()%>">
+								<input type="submit" name="action" value="Add To Cart">
 							</form>
 						</div>
 

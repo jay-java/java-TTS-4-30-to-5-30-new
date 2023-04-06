@@ -1,3 +1,5 @@
+<%@page import="Dao.CartDao"%>
+<%@page import="Model.Cart"%>
 <%@page import="Dao.WishListDao"%>
 <%@page import="Model.WishList"%>
 <%@page import="Dao.ProductDao"%>
@@ -180,27 +182,35 @@
 									<th>Product</th>
 									<th>Product Name</th>
 									<th>Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
 									<th>Remove</th>
 								</tr>
 							</thead>
 							<tbody>
 
 								<%
-								List<WishList> list = WishListDao.getWishLIstByCusId(c.getId());
+								List<Cart> list = CartDao.getCartByCusId(c.getId());
 								%>
 								<%
-								for (WishList w : list) {
+								for (Cart c1 : list) {
 								%>
 								<%
-								Product p = ProductDao.getProductsByPid(w.getPid());
+								Product p = ProductDao.getProductsByPid(c1.getPid());
 								%>
 								<tr class="rem1">
 									<td class="invert-image"><a href="single.html"><img
 											src="img/<%=p.getImage()%>" alt=" " height="100px"
 											width="px100" class="img-responsive"></a></td>
-									<td class="invert"><%=p.getPname()%></td>
-									<td class="invert"><%=p.getPprice()%></td>
-									<td><a href="remove-from-wishlist.jsp?id=<%=w.getWid()%>">Remove</a></td>
+									<td class="invert"><%=c1.getPname()%></td>
+									<td class="invert"><%=c1.getPprice()%></td>
+									<td class="invert">
+									<form action="CartController" method="post">
+										<input type="number" name="qty" value="<%=c1.getQty()%>">
+									</form>
+									</td>
+									<td class="invert"><%=c1.getTotal()%></td>
+									<td><a href="remove-from-cart.jsp?id=<%=c1.getCid()%>">Remove</a></td>
 								</tr>
 								<%
 								}

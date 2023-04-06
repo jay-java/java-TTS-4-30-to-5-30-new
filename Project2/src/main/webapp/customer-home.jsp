@@ -1,3 +1,5 @@
+<%@page import="Dao.WishListDao"%>
+<%@page import="Model.WishList"%>
 <%@page import="Dao.ProductDao"%>
 <%@page import="Model.Product"%>
 <%@page import="java.util.List"%>
@@ -117,7 +119,7 @@
                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                   <ul class="navbar-nav ">
                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="customer-home.jsp">Home <span class="sr-only">(current)</span></a>
                      </li>
                      <li class="nav-item">
                         <a href="about.html" class="nav-link">About</a>
@@ -133,8 +135,10 @@
                         Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                           <a class="nav-link" href="wishlist.jsp">WishList</a>
-                           <a class="nav-link " href="customer-register.jsp">Cart</a>
+                        <%List<WishList> list2 = WishListDao.getWishLIstByCusId(c.getId()); %>
+                        <%int size = list2.size(); %>
+                           <a class="nav-link" href="wishlist.jsp">WishList(<%=size %>)</a>
+                           <a class="nav-link " href="cart.jsp">Cart</a>
                         </div>
                      </li>
                      <li class="nav-item dropdown">
