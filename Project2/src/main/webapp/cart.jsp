@@ -51,7 +51,7 @@
 <!--Shoping cart-->
 <link rel="stylesheet" href="css/shop.css" type="text/css" />
 <!--//Shoping cart-->
- <link rel="stylesheet" type="text/css" href="css/checkout.css">
+<link rel="stylesheet" type="text/css" href="css/checkout.css">
 <!--stylesheets-->
 <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
 <!--//stylesheets-->
@@ -169,7 +169,12 @@
 	<!-- //banner -->
 	<!-- about -->
 	<br>
-	<br><br><br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<section class="checkout py-lg-4 py-md-3 py-sm-3 py-3">
 		<div class="container py-lg-5 py-md-4 py-sm-4 py-3">
 			<div class="shop_inner_inf">
@@ -187,6 +192,9 @@
 									<th>Remove</th>
 								</tr>
 							</thead>
+							<%
+							int net_price = 0;
+							%>
 							<tbody>
 
 								<%
@@ -194,6 +202,7 @@
 								%>
 								<%
 								for (Cart c1 : list) {
+									net_price = net_price + c1.getTotal();
 								%>
 								<%
 								Product p = ProductDao.getProductsByPid(c1.getPid());
@@ -205,9 +214,12 @@
 									<td class="invert"><%=c1.getPname()%></td>
 									<td class="invert"><%=c1.getPprice()%></td>
 									<td class="invert">
-									<form action="CartController" method="post">
-										<input type="number" name="qty" value="<%=c1.getQty()%>">
-									</form>
+										<form action="CartController" method="post">
+											<input type="hidden" name="cid" value="<%=c1.getCid()%>">
+											<input type="hidden" name="pprice" value="<%=c1.getPprice()%>"> 
+											<input type="hidden" name="total" value="<%=c1.getTotal()%>"> 
+											<input type="number" name="qty" value="<%=c1.getQty()%>" onchange="this.form.submit();">
+										</form>
 									</td>
 									<td class="invert"><%=c1.getTotal()%></td>
 									<td><a href="remove-from-cart.jsp?id=<%=c1.getCid()%>">Remove</a></td>
@@ -217,6 +229,53 @@
 								%>
 							</tbody>
 						</table>
+					</div>
+
+					<div class="checkout-left">
+						<div class="col-md-4 checkout-left-basket">
+							<%for(Cart c1:list){ %>
+							<ul>
+								<li>Product1 <i>-</i> <span><%=c1.getTotal() %> </span></li>
+							</ul>
+							<%} %>
+							<h5>Total : <%out.print(net_price); %></h5>
+						</div>
+						<div class="col-md-8 address_form">
+							<h4>Add a new Details</h4>
+							<form action="payment.html" method="post"
+								class="creditly-card-form agileinfo_form">
+								<section class="creditly-wrapper wrapper">
+									<div class="information-wrapper">
+										<div class="first-row form-group">
+											<div class="controls">
+												<label class="control-label">Full name: </label> <input
+													class="billing-address-name form-control" type="text"
+													name="name" value="<%=c.getName()%>">
+											</div>
+											<div class="card_number_grids">
+												<div class="card_number_grid_left">
+													<div class="controls">
+														<label class="control-label">Mobile number:</label> <input
+															class="form-control" type="text"
+															value="<%=c.getContact()%>">
+													</div>
+												</div>
+												<div class="card_number_grid_right">
+													<div class="controls">
+														<label class="control-label">Address: </label> <input
+															class="form-control" type="text" value="<%=c.getAddress()%>">
+													</div>
+												</div>
+												<div class="clear"></div>
+											</div>
+										</div>
+										<button class="submit check_out">Checkout</button>
+									</div>
+								</section>
+							</form>
+						</div>
+						<div class="clearfix"></div>
+						<div class="clearfix"></div>
 					</div>
 
 				</div>

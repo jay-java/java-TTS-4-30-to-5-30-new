@@ -55,4 +55,18 @@ public class CartDao {
 		}
 		return list;
 	}
+	public static void updateCart(Cart c) {
+		try {
+			Connection con = DBConnection.createConnection();
+			String sql="update cart set qty=?,total=? where cid=?";
+			PreparedStatement pst =con.prepareStatement(sql);
+			pst.setInt(1, c.getQty());
+			pst.setInt(2, c.getTotal());
+			pst.setInt(3, c.getCid());
+			pst.executeUpdate();
+			System.out.println("cart updated");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
