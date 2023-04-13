@@ -35,7 +35,6 @@
     <fullyQualifiedTypeName name="javax.print.attribute.standard.PresentationDirection"/>
     <fullyQualifiedTypeName name="com.mysql.cj.PreparedQuery"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="Model.Seller"/>
     <fullyQualifiedTypeName name="Controller.SellerController"/>
     <fullyQualifiedTypeName name="Dao.SellerDao"/>
@@ -51,13 +50,14 @@
     <fullyQualifiedTypeName name="Model.Product"/>
     <fullyQualifiedTypeName name="Dao.WishListDao"/>
     <fullyQualifiedTypeName name="Model.WishList"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="Connection.DBConnection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="Dao.CartDao"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="Model.Cart"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="Connection.DBConnection"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="Dao.CartDao"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 </qualifiedTypeNameHistroy>
