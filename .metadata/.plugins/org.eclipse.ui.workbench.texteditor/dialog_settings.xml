@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="BASIC TABLE"/>
 			<item value="john do"/>
 			<item value="John Doe"/>
 			<item value="Soft Teddy Bear "/>
@@ -13,7 +14,6 @@
 			<item value="CONTINUE TO BASKET"/>
 			<item value="Bella Toes"/>
 			<item value="Sort Toys And Teddy bears"/>
-			<item value="COMMUNICATION"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="core.FileWriterReader"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="core.Stud"/>
@@ -35,7 +34,6 @@
     <fullyQualifiedTypeName name="javax.print.attribute.standard.PresentationDirection"/>
     <fullyQualifiedTypeName name="com.mysql.cj.PreparedQuery"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
-    <fullyQualifiedTypeName name="Model.Seller"/>
     <fullyQualifiedTypeName name="Controller.SellerController"/>
     <fullyQualifiedTypeName name="Dao.SellerDao"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
@@ -50,14 +48,16 @@
     <fullyQualifiedTypeName name="Model.Product"/>
     <fullyQualifiedTypeName name="Dao.WishListDao"/>
     <fullyQualifiedTypeName name="Model.WishList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="Model.Cart"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="Connection.DBConnection"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="Dao.CartDao"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="Connection.DBConnection"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="Model.Seller"/>
 </qualifiedTypeNameHistroy>
