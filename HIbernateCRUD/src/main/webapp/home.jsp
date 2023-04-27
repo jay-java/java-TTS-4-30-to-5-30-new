@@ -1,3 +1,5 @@
+<%@page import="dao.UserDao"%>
+<%@page import="java.util.List"%>
 <%@page import="model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -35,6 +37,42 @@ else{
 }
 %>
 <h1>Welcome, <%=u.getName() %></h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Contact</th>
+			<th>Address</th>
+			<th>Email</th>
+			<th>Password</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<%UserDao dao = new UserDao(); %>
+		<%List<User> list = dao.getAllUser(); %>
+		<%for(User u1: list){ %>
+		<tr>
+			<td><%=u1.getId() %></td>
+			<td><%=u1.getName() %></td>
+			<td><%=u1.getContact() %></td>
+			<td><%=u1.getAddress() %></td>
+			<td><%=u1.getEmail() %></td>
+			<td><%=u1.getPassword() %></td>
+			<td>
+				<form action="UserController" method="post"> 
+					<input type="hidden" name="id" value="<%=u1.getId()%>">
+					<input type="submit" name="action" value="edit">
+				</form>
+			</td>
+				<td>
+				<form action="UserController" method="post"> 
+					<input type="hidden" name="id" value="<%=u1.getId()%>">
+					<input type="submit" name="action" value="delete">
+				</form>
+			</td>
+		</tr>
+		<%} %>
+	</table>
 <h1><a href="logout.jsp">Logout</a></h1>
 
 

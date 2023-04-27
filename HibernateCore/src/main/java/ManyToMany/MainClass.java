@@ -40,7 +40,7 @@ public class MainClass {
 		plist.add(p1);
 		plist.add(p2);
 		
-		e1.setProjects(plist);
+		e1.setProjects(plist);	
 		e2.setProjects(plist);
 		p1.setEmployees(elist);
 		p2.setEmployees(elist);

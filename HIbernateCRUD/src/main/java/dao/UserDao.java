@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -32,5 +33,40 @@ public class UserDao {
 		tx.commit();
 		session.close();
 		return u;
+	}
+	public List<User> getAllUser(){
+		session = new DBConnection().getSession();
+		tx = session.beginTransaction();
+		Query q = session.createQuery("from User");
+		list = new ArrayList<User>();
+		list = q.list();
+		tx.commit();
+		session.close();
+		return list;
+	}
+	public User getUserById(int id) {
+		session = new DBConnection().getSession();
+		tx = session.beginTransaction();
+		Query q = session.createQuery("from User u where id=:id");
+		q.setParameter("id", id);
+		list = q.list();
+		u = list.get(0);
+		tx.commit();
+		session.close();
+		return u;
+	}
+	public void updateUser(User u) {
+		session = new DBConnection().getSession();
+		tx = session.beginTransaction();
+		session.update(u);
+		tx.commit();
+		session.close();
+	}
+	public void deleteUser(User u) {
+		session = new DBConnection().getSession();
+		tx = session.beginTransaction();
+		session.delete(u);
+		tx.commit();
+		session.close();
 	}
 }
