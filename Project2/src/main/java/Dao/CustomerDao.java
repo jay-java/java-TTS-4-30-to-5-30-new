@@ -36,7 +36,7 @@ public class CustomerDao {
 			ResultSet rs = pst.executeQuery();
 			if(rs.next()) {
 				s1 = new Customer();
-				s1.setId(rs.getInt("id"));
+				s1.setId(rs.getInt("cid"));
 				s1.setName(rs.getString("name"));
 				s1.setContact(rs.getLong("contact"));
 				s1.setAddress(rs.getString("address"));

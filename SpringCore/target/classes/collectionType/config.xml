@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	
+	<bean class="collectionType.User" name="u1">
+		<property name="id" value="1"/>
+		<property name="name" value="java"/>
+		<property name="contact">
+			<list>
+				<value>9875</value>
+				<value>34534</value>
+				<value>3456566</value>
+			</list>
+		</property>
+		<property name="frds">
+			<set>
+				<value>abc</value>
+				<value>def</value>
+				<value>ghi</value>
+			</set>
+		</property>
+		<property name="bank_acc">
+			<map>
+				<entry key="11" value="java"/>
+				<entry key="12" value="python"/>
+				<entry key="13" value="C++"/>
+			</map>
+		</property>
+	</bean>
+	
+	</beans>

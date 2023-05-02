@@ -8,10 +8,9 @@ public class App {
 		System.out.println("Hello World!");
 		ApplicationContext con = new ClassPathXmlApplicationContext("com/core/config.xml");
 		User u = (User)con.getBean("u1");
-		
 		System.out.println(u);
-		User u2 = (User)con.getBean("u2");
-		System.out.println(u2);
+//		User u2 = (User)con.getBean("u2");
+//		System.out.println(u2);
 	}
 	
 }
