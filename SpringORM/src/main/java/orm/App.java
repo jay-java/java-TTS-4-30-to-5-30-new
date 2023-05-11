@@ -10,9 +10,8 @@ public class App {
 		System.out.println("started");
 		ApplicationContext con = new ClassPathXmlApplicationContext("orm/config.xml");
 		UserDao dao = (UserDao)con.getBean("dao");
-		User u = new User(2, "java", 9865321);
-		List<User> list = dao.getAllUser();
-		System.out.println(list);
+		User u = new User(3, "java", 9865321);
+		dao.insertUser(u);
 		System.out.println("data inserted");
 	}
 }
