@@ -31,7 +31,7 @@ public class UserDao {
 	}
 
 	@Transactional
-	public void deleteUse(User u) {
+	public void deleteUser(User u) {
 		this.hibernateTemplate.delete(u);
 	}
 

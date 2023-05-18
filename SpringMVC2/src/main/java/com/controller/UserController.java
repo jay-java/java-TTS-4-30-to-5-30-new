@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.dao.UserDao;
@@ -48,6 +50,27 @@ public class UserController {
 		re.setUrl(request.getContextPath()+"/");
 		return re;
 	}
+	
+	@RequestMapping(value = "/update/{id}")
+	public ModelAndView updateUser(@PathVariable("id") int id) {
+		User u = dao.getUserById(id);
+		System.out.println(u);
+		ModelAndView m = new ModelAndView();
+		m.addObject("u", u);
+		m.setViewName("update");
+		return m;
+	}
+	@RequestMapping(value="/delete/{id}")
+	public RedirectView delete(@PathVariable("id") int id,HttpServletRequest request) {
+		User u = dao.getUserById(id);
+		dao.deleteUser(u);
+		RedirectView re = new RedirectView();
+		re.setUrl(request.getContextPath()+"/");
+		return re;
+	}
+	
+	
+	
 
 //	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 //	public void insertUser(@RequestParam("name") String name, 

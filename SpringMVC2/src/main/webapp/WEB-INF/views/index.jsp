@@ -45,8 +45,8 @@
 						<td>${u.address }</td>
 						<td>${u.email }</td>
 						<td>${u.password }</td>
-						<td><a class="btn btn-success" href="#">Edit</a></td>
-						<td><a class="btn btn-danger" href="#">Delete</a></td>
+						<td><a class="btn btn-success" href="update/${u.id }">Edit</a></td>
+						<td><a class="btn btn-danger" href="delete/${u.id }">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
